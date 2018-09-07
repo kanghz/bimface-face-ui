@@ -1,21 +1,47 @@
-# bimface-face-ui
+# Face-ui
+一个基于Vue2.0版本的Web UI组件库
 
-> A Vue.js project
-
-## Build Setup
-
+## 安装Face-ui
 ``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+npm i bimface-face-ui
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 按需引入
+用 babel-plugin-import，该插件是一款 babel 插件，借助此插件只需要引入需要的组件，以达到减小项目体积的目的。
+
+安装 babel-plugin-component：
+``` bash
+npm install babel-plugin-component -D
+```
+修改 .babelrc：
+``` bash
+"plugins": [
+ [
+   "import",
+   {
+     "libraryName": "bimface-face-ui",
+     "style": true
+   }
+ ]
+]
+```
+安装和配置好插件后，即可使用
+``` bash
+import {
+  Button,
+  Loading
+  // ...
+} from 'bimfae-face-ui'
+
+Vue.use(Button)
+Vue.use(Loading)
+```
+
+## 全局引入
+``` bash
+import Vue from 'vue'
+import face from 'bimfae-face-ui'
+import 'bimfae-face-ui/dist/face.css';
+
+Vue.use(face)
+```
