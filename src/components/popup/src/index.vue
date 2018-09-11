@@ -57,7 +57,7 @@
         left:0;
         right:0;
         bottom:0;
-        background:rgba(0,0,0,.4);
+        background:@popup-bg;
         box-sizing: border-box;
         .face-popup-body {
             position: absolute;
@@ -73,7 +73,7 @@
             vertical-align: middle;
             transform: translate(-50%,-50%);
             .face-popup-head {
-                background-color: #2c2c2c;
+                background-color: @popup-head-bg;
                 color: #fff;
                 line-height: 40px;
                 padding: 0 10px;
@@ -83,13 +83,13 @@
                 margin-top: 13px;
                 cursor: pointer;
                 &:hover {
-                    color:@default-color;
+                    color:@primary-color;
                 }
             }
             .face-popup-content {
                 position: relative;
                 padding: 10px 15px;
-                color: #606266;
+                color: @default-color;
                 font-size: 14px;
             }
             .face-popup-center {

@@ -5,6 +5,7 @@ import Button from './components/button/index'
 import Pagination from './components/pagination/index'
 import Popup from './components/popup/index'
 import Loading from './components/loading/index'
+import Table from './components/table/index'
 import Tag from './components/tag/index'
 import View from './components/view/index'
 
@@ -15,6 +16,7 @@ const components = [
     Pagination,
     Popup,
     Loading,
+    Table,
     Tag,
     View
 ]
@@ -36,6 +38,7 @@ export {
     Pagination,
     Popup,
     Loading,
+    Table,
     Tag,
     View
 }

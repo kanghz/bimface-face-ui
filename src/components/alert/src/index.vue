@@ -76,7 +76,7 @@
         line-height: 40px;
         text-align: left;
         border-radius:0 0 6px 6px;
-        color:#333;
+        color:@default-color;
         background:#f4f4f5;
         font-size:16px;
         box-sizing: border-box;
@@ -92,24 +92,24 @@
         cursor: pointer;
         color:#999;
         line-height: 40px;
-    &:hover {
-         color:@default-color;
-     }
-    }
+        &:hover {
+           color:@primary-color;
+        }
+      }
     }
     &.face-alert-center {
          text-align: center;
      }
     &.face-alert-success{
-         color:#217900;
+         color:@success-color;
          background:#e5ffdc;
      }
     &.face-alert-warning{
-         color: #e6a23c;
+         color: @waring-color;
          background:#fdf6ec;
      }
     &.face-alert-error{
-         color: #b50000;
+         color: @danger-color;
          background:#ffdedc;
      }
     }

@@ -95,7 +95,7 @@
             cursor: pointer;
             &.cur, &:hover {
                 text-decoration: none;
-                background: @default-color;
+                background: @primary-color;
                 color: #fff;
             }
         }

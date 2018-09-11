@@ -50,8 +50,8 @@
         white-space: nowrap;
         cursor: pointer;
         background: #fff;
-        border: 1px solid #dcdfe6;
-        color: #606266;
+        border: 1px solid @border-color;
+        color: @default-color;
         -webkit-appearance: none;
         text-align: center;
         box-sizing: border-box;
@@ -71,23 +71,23 @@
         }
     }
     .face-button-primary {
-        background:@default-color;
+        background:@primary-color;
         color:#fff;
-        border-color:@default-color;
+        border-color:@primary-color;
         &.face-button-plain {
             background:transparent;
-            color:@default-color;
-            border:1px solid @default-color;
+            color:@primary-color;
+            border:1px solid @primary-color;
         }
     }
     .face-button-warning {
-        background:#f99d0b;
+        background:@waring-color;
         color:#fff;
-        border-color:#f99d0b;
+        border-color:@waring-color;
         &.face-button-plain {
             background:transparent;
-            color:#f99d0b;
-            border:1px solid #f99d0b;
+            color:@waring-color;
+            border:1px solid @waring-color;
         }
     }
     .face-button-disabled {

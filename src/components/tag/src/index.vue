@@ -44,31 +44,31 @@
     }
     .face-tag-default {
         color: #fff;
-        background: #c9c9c9;
-        border: 1px solid #c9c9c9;
+        background: @border-color;
+        border: 1px solid @border-color;
         &.face-tag-plain {
-            color: #999;
-            border-color: #c9c9c9;
+            color: @border-color;
+            border-color: @border-color;
             background: transparent;
         }
     }
     .face-tag-primary {
         color: #fff;
-        background: @default-color;
-        border: 1px solid @default-color;
+        background: @primary-color;
+        border: 1px solid @primary-color;
         &.face-tag-plain {
-            color: @default-color;
-            border-color: @default-color;
+            color: @primary-color;
+            border-color: @primary-color;
             background: transparent;
         }
     }
     .face-tag-orange {
         color: #fff;
-        background: #f60;
-        border: 1px solid #f60;
+        background: @second-color;
+        border: 1px solid @second-color;
         &.face-tag-plain {
-            color: #f60;
-            border-color: #f60;
+            color: @second-color;
+            border-color: @second-color;
             background: transparent;
         }
     }
