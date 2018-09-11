@@ -19,9 +19,9 @@
             </td>
             <td>{{(props.item.length/1024/1024).toFixed(2)}}Mb</td>
             <td>
-              <span :class="props.item.status" v-if="props.item.status == 'failed'">上传失败</span>
-              <span :class="props.item.status" v-if="props.item.status == 'success'">上传成功</span>
-              <span :class="props.item.status" v-if="props.item.status == 'uploading'">上传中</span>
+              <span v-if="props.item.status == 'failed'">上传失败</span>
+              <span v-if="props.item.status == 'success'">上传成功</span>
+              <span v-if="props.item.status == 'uploading'">上传中</span>
             </td>
             <td>{{props.item.createTime}}</td>
             <td>
@@ -51,9 +51,9 @@
             </td>
             <td>{{(props.item.length/1024/1024).toFixed(2)}}Mb</td>
             <td>
-              <span :class="props.item.status" v-if="props.item.status == 'failed'">上传失败</span>
-              <span :class="props.item.status" v-if="props.item.status == 'success'">上传成功</span>
-              <span :class="props.item.status" v-if="props.item.status == 'uploading'">上传中</span>
+              <span v-if="props.item.status == 'failed'">上传失败</span>
+              <span v-if="props.item.status == 'success'">上传成功</span>
+              <span v-if="props.item.status == 'uploading'">上传中</span>
             </td>
             <td>{{props.item.createTime}}</td>
             <td>
@@ -72,7 +72,7 @@
           <th>Size</th>
           <th>Status</th>
           <th>CreateTime</th>
-          <th>Control</th>
+          <th>Tag</th>
         </tr>
         <template slot="item" slot-scope="props">
           <tr>
@@ -81,13 +81,13 @@
             </td>
             <td>{{(props.item.length/1024/1024).toFixed(2)}}Mb</td>
             <td>
-              <span :class="props.item.status" v-if="props.item.status == 'failed'">上传失败</span>
-              <span :class="props.item.status" v-if="props.item.status == 'success'">上传成功</span>
-              <span :class="props.item.status" v-if="props.item.status == 'uploading'">上传中</span>
+              <span v-if="props.item.status == 'failed'">上传失败</span>
+              <span v-if="props.item.status == 'success'">上传成功</span>
+              <span v-if="props.item.status == 'uploading'">上传中</span>
             </td>
             <td>{{props.item.createTime}}</td>
             <td>
-              <face-button size="small" @click="deleteFile(props.item.fileId)">delete</face-button>
+              <face-tag type="orange">success</face-tag>
             </td>
           </tr>
         </template>
