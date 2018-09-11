@@ -47,21 +47,6 @@
             <face-button size="small" @click="setMeasureType">修改测量类型为角度</face-button>
             <face-button size="small" @click="switchOff">关闭测量</face-button>
         </div>
-
-        <!--<div class="model-box">-->
-            <!--<face-view-->
-                    <!--:width="800"-->
-                    <!--:height="600"-->
-                    <!--viewToken="8989009b7fdd4b09856dc0bcdff590db"-->
-                    <!--vid="domDraw"-->
-                    <!--type="junior"-->
-                    <!--:viewer.sync="viewerDwg"-->
-            <!--&gt;</face-view>-->
-        <!--</div>-->
-        <!--<div class="demo-row">-->
-            <!--<face-button size="small" @click="changRectZoom">进入框选放大模式</face-button>-->
-            <!--<face-button size="small" @click="clearRectZoom">取消框选放大模式</face-button>-->
-        <!--</div>-->
     </div>
 </template>
 
@@ -79,10 +64,10 @@
 
         methods:{
             showModel(){
-                this.viewToken = '9b1fad7206b54b75a384c339f977f1d5'
+                this.viewToken = 'e115c69d15904d46a480a043743f033b'
             },
             changeModel(){
-                this.viewToken = '5f7ec471ba16414092d17f14c77f2e69'
+                this.viewToken = '18c1fa3285ca40ce95b4957d5f211622'
             },
             isolate(){
                 this.viewer.isolateComponentsById(['726397'], Glodon.Bimface.Viewer.IsolateOption.MakeOthersTranslucent);

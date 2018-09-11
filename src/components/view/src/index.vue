@@ -39,9 +39,10 @@
             'viewToken':{
                 handler(curVal,oldVal){
                     if(curVal.length>0){
-                        if(this.viewer){
+                        if(curVal !== oldVal){
                             document.getElementById(this.vid).innerHTML = "";
                         }
+                        this.viewToken = curVal;
                         let options = new BimfaceSDKLoaderConfig();
                         options.viewToken = this.viewToken;
                         BimfaceSDKLoader.load(options, this.successCallback, this.failureCallback);
@@ -63,8 +64,8 @@
                         let app = new Glodon.Bimface.Application.WebApplication2D(webAppConfig);
                         app.load(viewMetaData.viewToken);
                         viewer = app.getViewer();
+                        that.$emit("update:viewer", viewer);
                         viewer.addEventListener(Glodon.Bimface.Viewer.Viewer2DEvent.Loaded, function () {
-                            that.$emit("update:viewer", viewer);
                         })
                     } else if (viewMetaData.viewType == "3DView") {
                         let webAppConfig = new Glodon.Bimface.Application.WebApplication3DConfig();
@@ -73,14 +74,10 @@
                         app.addView(viewMetaData.viewToken);
                         viewer = app.getViewer();
                         that.$emit("update:viewer", viewer);
-                        that.isAnnotation(that.annotation,viewer);
-                        that.isMeasure(that.measure,viewer);
-                        // viewer.addEventListener(Glodon.Bimface.Viewer.Viewer3DEvent.ViewAdded, function () {
-                        //     viewer.render();
-                        //     that.$emit("update:viewer", viewer);
-                        //     that.isAnnotation(that.annotation,viewer);
-                        //     that.isMeasure(that.measure,viewer);
-                        // });
+                        viewer.addEventListener(Glodon.Bimface.Viewer.Viewer3DEvent.ViewAdded, function () {
+                            // that.isAnnotation(that.annotation,viewer);
+                            // that.isMeasure(that.measure,viewer);
+                        });
                     } else if (viewMetaData.viewType == "drawingView"){
                         let WebAppConfig = new Glodon.Bimface.Application.WebApplicationDrawingConfig();
                         WebAppConfig.domElement = dom4Show;
@@ -89,9 +86,9 @@
                         WebAppConfig.staticHost = viewMetaData.staticHost;
                         let app = new Glodon.Bimface.Application.WebApplicationDrawing(WebAppConfig);
                         viewer = app.getViewer();
+                        that.$emit("update:viewer", viewer);
                         app.load(viewMetaData.viewToken);
                         viewer.addEventListener(Glodon.Bimface.Viewer.ViewerDrawingEvent.Loaded, function () {
-                            that.$emit("update:viewer", viewer);
                         });
                     } else if (viewMetaData.viewType == "rfaView") {
                         var config = new Glodon.Bimface.Application.WebApplicationRfaConfig();
@@ -108,20 +105,19 @@
                         config.domElement = dom4Show;
                         viewer= new Glodon.Bimface.Viewer.Viewer2D(config);
                         viewer.addView(viewMetaData.viewToken);
+                        that.$emit("update:viewer", viewer);
                         viewer.addEventListener(Glodon.Bimface.Viewer.Viewer2DEvent.Loaded,function() {
-                            that.$emit("update:viewer", viewer);
                         });
                     } else if (viewMetaData.viewType == "3DView" || viewMetaData.viewType == "rfaView") {
                         let config = new Glodon.Bimface.Viewer.Viewer3DConfig();
                         config.domElement = dom4Show;
                         viewer = new Glodon.Bimface.Viewer.Viewer3D(config);
                         viewer.addView(viewMetaData.viewToken);
-                        // viewer.addEventListener(Glodon.Bimface.Viewer.Viewer3DEvent.ViewAdded, function() {
-                        //     viewer.render();
-                        //     that.$emit("update:viewer", viewer);
-                        //     that.isAnnotation(that.annotation,viewer);
-                        //     that.isMeasure(that.measure,viewer);
-                        // });
+                        that.$emit("update:viewer", viewer);
+                        viewer.addEventListener(Glodon.Bimface.Viewer.Viewer3DEvent.ViewAdded, function() {
+                            // that.isAnnotation(that.annotation,viewer);
+                            // that.isMeasure(that.measure,viewer);
+                        });
                     } else if (viewMetaData.viewType == "drawingView") {
                         let viewConfig = new Glodon.Bimface.Viewer.ViewerDrawingConfig();
                         viewConfig.domElement = dom4Show;
@@ -130,9 +126,9 @@
                         viewConfig.staticHost = viewMetaData.staticHost;
                         let app = new Glodon.Bimface.Viewer.ViewerDrawing(viewConfig);
                         viewer = app.getViewer();
+                        that.$emit("update:viewer", viewer);
                         app.load(viewMetaData.viewToken);
                         app.addEventListener(Glodon.Bimface.Viewer.ViewerDrawingEvent.Loaded, function() {
-                            that.$emit("update:viewer", viewer);
                         });
                     }
                 } else {
