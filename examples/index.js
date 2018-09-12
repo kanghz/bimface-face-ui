@@ -19,9 +19,9 @@ import button from './doc/button.md'
 import icon from './doc/icon.md'
 import loading from './pages/loading'
 import pagination from './doc/pagination.md'
-import popup from './pages/popup'
+import popup from './doc/popup.md'
 import table from './pages/table'
-import tag from './pages/tag'
+import tag from './doc/tag.md'
 import view from './pages/view'
 
 const _routes = [
