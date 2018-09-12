@@ -1,6 +1,39 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const utils = require('./build/utils')
+
+const MarkdownItContainer = require('markdown-it-container')
+const striptags = require('./build/strip-tags')
+
+const vueMarkdown = {
+  preprocess: (MarkdownIt, source) => {
+    MarkdownIt.renderer.rules.table_open = function () {
+      return '<table class="table">'
+    }
+    MarkdownIt.renderer.rules.fence = utils.wrapCustomClass(MarkdownIt.renderer.rules.fence)
+    return source
+  },
+  use: [
+    [MarkdownItContainer, 'demo', {
+      validate: params => params.trim().match(/^demo\s*(.*)$/),
+      render: function(tokens, idx) {
+        var m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
+
+        if (tokens[idx].nesting === 1) {
+          var desc = tokens[idx + 2].content;
+          const html = utils.convertHtml(striptags(tokens[idx + 1].content, 'script'))
+          tokens[idx + 2].children = [];
+
+          return `<demo-block>
+                        <div slot="desc">${html}</div>
+                        <div slot="highlight">`;
+        }
+        return '</div></demo-block>\n';
+      }
+    }]
+  ]
+}
 
 module.exports = {
   devtool: '#eval-source-map',
@@ -64,6 +97,10 @@ module.exports = {
         limit: 10000,
         name: 'images/fonts/[name].[hash:4].[ext]'
       }
+    },{
+      test: /\.md$/,
+      loader: 'vue-markdown-loader',
+      options: vueMarkdown
     }]
   },
 
