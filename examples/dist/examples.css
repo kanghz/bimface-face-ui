@@ -299,7 +299,6 @@ section a {
   color: #6190e8;
 }
 section table.table {
-  display: block;
   width: 100%;
   background-color: #fff;
   color: #5e6d82;
@@ -313,6 +312,7 @@ section table.table th {
   background-color: #FAFBFC;
   border-bottom: 1px solid #f3f7fa;
   padding: 10px 8px;
+  text-align: left;
 }
 section table.table td {
   border-top: 1px solid #f3f7fa;
