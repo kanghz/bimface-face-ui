@@ -20,7 +20,7 @@ import icon from './doc/icon.md'
 import loading from './pages/loading'
 import pagination from './doc/pagination.md'
 import popup from './doc/popup.md'
-import table from './pages/table'
+import table from './doc/table.md'
 import tag from './doc/tag.md'
 import view from './pages/view'
 

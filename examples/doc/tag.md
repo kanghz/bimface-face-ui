@@ -1,14 +1,3 @@
-<script>
-  module.exports = {
-    methods:{
-      buttonEvent:(str)=>{
-        alert(str + '-Button Clicked')
-      }
-    }
-      
-  };
-</script>
-
 # Tag -- 标签
 ----
 ### 基础用法
