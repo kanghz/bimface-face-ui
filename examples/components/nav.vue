@@ -2,6 +2,7 @@
     <div class="side">
         <dl>
           <dt>开发指南</dt>
+          <dd><router-link :to="{name: 'Intro'}">介绍</router-link></dd>
           <dd><router-link :to="{name: 'Installation'}">安装</router-link></dd>
           <dd><router-link :to="{name: 'Quick'}">快速上手</router-link></dd>
           <dd><router-link :to="{name: 'Theme'}">自定义主题</router-link></dd>
