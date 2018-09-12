@@ -44,7 +44,10 @@
         name: 'face-pagination',
 
         props: {
-            startPage: Number,
+            startPage: {
+              type:Number,
+              default:1
+            },
             pageCount: Number,
             plain: Boolean,
             single: Boolean,

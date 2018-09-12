@@ -11,9 +11,9 @@
           <dd><router-link :to="{name: 'Alert'}">Alert 警告</router-link></dd>
           <dd><router-link :to="{name: 'Button'}">Button 按钮</router-link></dd>
           <dd><router-link :to="{name: 'Icon'}">Icon 图标</router-link></dd>
+          <dd><router-link :to="{name: 'Loading'}">Loading 加载</router-link></dd>
           <dd><router-link :to="{name: 'Pagination'}">Pagination 翻页</router-link></dd>
           <dd><router-link :to="{name: 'Popup'}">Popup 弹出层</router-link></dd>
-          <dd><router-link :to="{name: 'Loading'}">Loading 加载</router-link></dd>
           <dd><router-link :to="{name: 'Tag'}">Tag 标签</router-link></dd>
 
           <dt>表单表格组件</dt>
