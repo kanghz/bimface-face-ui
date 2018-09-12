@@ -5,21 +5,24 @@
         <h4>基础使用</h4>
         <div class="demo-box">
             <p>将在这块区域展示loading</p>
-            <face-loading :visible="loading"></face-loading>
         </div>
         <div class="demo-row">
-            <face-button plain @click="loading = false">close loading</face-button>
-            <face-button plain @click="loading = true">open loading</face-button>
+            <face-button plain @click="openLoading">close loading</face-button>
+            <face-button plain @click="closeLoading">open loading</face-button>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        data() {
-            return {
-                loading: true
-            }
+        methods:{
+          openLoading(){
+
+          },
+
+          closeLoading(){
+
+          }
         }
     }
 </script>

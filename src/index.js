@@ -15,7 +15,6 @@ const components = [
     Button,
     Pagination,
     Popup,
-    Loading,
     Table,
     Tag,
     View
@@ -26,6 +25,8 @@ const install = Vue => {
     install.installed = true
 
     components.forEach(component => Vue.component(component.name, component))
+
+    Vue.prototype.$loading = Loading;
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

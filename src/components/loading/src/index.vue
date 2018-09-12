@@ -1,5 +1,5 @@
 <template>
-    <div class="face-loading" v-if="visible">
+    <div class="face-loading" v-show="visible">
         <div class="face-loading-outer">
             <div class="face-loading-inner"></div>
         </div>
@@ -10,11 +10,10 @@
     export default {
         name: 'face-loading',
 
-        props: {
-            visible:{
-                type:Boolean,
-                default:false
-            }
+        data() {
+          return {
+            visible: false
+          };
         }
     }
 </script>
