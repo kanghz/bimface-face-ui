@@ -11,13 +11,13 @@
             width:Number,
             height:Number,
             viewToken:String,
-            type:{
-                type:String,
-                default:'demo'
-            },
             annotation:{
                 type:Boolean,
                 default:false
+            },
+            toolbar:{
+              type:Boolean,
+              default:false
             },
             measure:{
                 type:Boolean,
@@ -57,63 +57,47 @@
                 let viewer;
                 let that = this;
                 let dom4Show = document.getElementById(this.vid);
-                if(this.type == 'junior'){
-                    if (viewMetaData.viewType == "dwgView") {
-                        let webAppConfig = new Glodon.Bimface.Application.WebApplication2DConfig();
-                        webAppConfig.domElement = dom4Show;
-                        let app = new Glodon.Bimface.Application.WebApplication2D(webAppConfig);
-                        app.load(viewMetaData.viewToken);
-                        viewer = app.getViewer();
-                        that.$emit("update:viewer", viewer);
-                    } else if (viewMetaData.viewType == "3DView") {
-                        let webAppConfig = new Glodon.Bimface.Application.WebApplication3DConfig();
-                        webAppConfig.domElement = dom4Show;
-                        let app = new Glodon.Bimface.Application.WebApplication3D(webAppConfig);
-                        app.addView(viewMetaData.viewToken);
-                        viewer = app.getViewer();
-                        that.$emit("update:viewer", viewer);
-                    } else if (viewMetaData.viewType == "drawingView"){
-                        let WebAppConfig = new Glodon.Bimface.Application.WebApplicationDrawingConfig();
-                        WebAppConfig.domElement = dom4Show;
-                        WebAppConfig.drawingUrl = viewMetaData.drawingUrl;
-                        WebAppConfig.viewToken = viewMetaData.viewToken;
-                        WebAppConfig.staticHost = viewMetaData.staticHost;
-                        let app = new Glodon.Bimface.Application.WebApplicationDrawing(WebAppConfig);
-                        viewer = app.getViewer();
-                        that.$emit("update:viewer", viewer);
-                        app.load(viewMetaData.viewToken);
-                    } else if (viewMetaData.viewType == "rfaView") {
-                        var config = new Glodon.Bimface.Application.WebApplicationRfaConfig();
-                        config.domElement = dom4Show;
-                        let app = new Glodon.Bimface.Application.WebApplicationRfa(config);
-                        viewer = app.addView(viewMetaData.viewToken);
+                if (viewMetaData.viewType == "dwgView") {
+                    let webAppConfig = new Glodon.Bimface.Application.WebApplication2DConfig();
+                    webAppConfig.domElement = dom4Show;
+                    if(!this.toolbar) {
+                      webAppConfig.Toolbars = [];
                     }
-                } else if(this.type == 'senior'){
-                    if (viewMetaData.viewType == "dwgView") {
-                        let config = new Glodon.Bimface.Viewer.Viewer2DConfig();
-                        config.domElement = dom4Show;
-                        viewer= new Glodon.Bimface.Viewer.Viewer2D(config);
-                        viewer.addView(viewMetaData.viewToken);
-                        that.$emit("update:viewer", viewer);
-                    } else if (viewMetaData.viewType == "3DView" || viewMetaData.viewType == "rfaView") {
-                        let config = new Glodon.Bimface.Viewer.Viewer3DConfig();
-                        config.domElement = dom4Show;
-                        viewer = new Glodon.Bimface.Viewer.Viewer3D(config);
-                        viewer.addView(viewMetaData.viewToken);
-                        that.$emit("update:viewer", viewer);
-                    } else if (viewMetaData.viewType == "drawingView") {
-                        let viewConfig = new Glodon.Bimface.Viewer.ViewerDrawingConfig();
-                        viewConfig.domElement = dom4Show;
-                        viewConfig.drawingUrl = viewMetaData.drawingUrl;
-                        viewConfig.viewToken = viewMetaData.viewToken;
-                        viewConfig.staticHost = viewMetaData.staticHost;
-                        let app = new Glodon.Bimface.Viewer.ViewerDrawing(viewConfig);
-                        viewer = app.getViewer();
-                        that.$emit("update:viewer", viewer);
-                        app.load(viewMetaData.viewToken);
+                    let app = new Glodon.Bimface.Application.WebApplication2D(webAppConfig);
+                    app.load(viewMetaData.viewToken);
+                    viewer = app.getViewer();
+                    that.$emit("update:viewer", viewer);
+                } else if (viewMetaData.viewType == "3DView") {
+                    let webAppConfig = new Glodon.Bimface.Application.WebApplication3DConfig();
+                    webAppConfig.domElement = dom4Show;
+                    if(!this.toolbar) {
+                      webAppConfig.Toolbars = [];
                     }
-                } else {
-                    new Glodon.Bimface.Application.WebApplicationDemo(viewMetaData, dom4Show);
+                    let app = new Glodon.Bimface.Application.WebApplication3D(webAppConfig);
+                    app.addView(viewMetaData.viewToken);
+                    viewer = app.getViewer();
+                    that.$emit("update:viewer", viewer);
+                } else if (viewMetaData.viewType == "drawingView"){
+                    let webAppConfig = new Glodon.Bimface.Application.WebApplicationDrawingConfig();
+                    webAppConfig.domElement = dom4Show;
+                    webAppConfig.drawingUrl = viewMetaData.drawingUrl;
+                    webAppConfig.viewToken = viewMetaData.viewToken;
+                    webAppConfig.staticHost = viewMetaData.staticHost;
+                    if(!this.toolbar) {
+                      webAppConfig.Toolbars = [];
+                    }
+                    let app = new Glodon.Bimface.Application.WebApplicationDrawing(webAppConfig);
+                    viewer = app.getViewer();
+                    that.$emit("update:viewer", viewer);
+                    app.load(viewMetaData.viewToken);
+                } else if (viewMetaData.viewType == "rfaView") {
+                    var webAppConfig = new Glodon.Bimface.Application.WebApplicationRfaConfig();
+                    webAppConfig.domElement = dom4Show;
+                    if(!this.toolbar) {
+                      webAppConfig.Toolbars = [];
+                    }
+                    let app = new Glodon.Bimface.Application.WebApplicationRfa(webAppConfig);
+                    viewer = app.addView(viewMetaData.viewToken);
                 }
             }
         }
