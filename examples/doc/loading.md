@@ -53,11 +53,10 @@
         this.$loading.open({target:'.demo-block'});
         setTimeout(()=>{this.$loading.close()},3000)
       },
-      
       openLoading3(){
-        this.$loading.open({target:'.components-wrap'});
+        this.$loading.open();
         setTimeout(()=>{this.$loading.close()},3000)
-      },
+      }
     }
  
   }

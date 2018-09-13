@@ -22,7 +22,7 @@ import pagination from './doc/pagination.md'
 import popup from './doc/popup.md'
 import table from './doc/table.md'
 import tag from './doc/tag.md'
-import view from './pages/view'
+import view from './doc/view.md'
 
 const _routes = [
     { path: '/intro', name: 'Intro', component:intro},
