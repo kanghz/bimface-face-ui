@@ -1,5 +1,12 @@
 <script>
   module.exports = {
+    data(){
+      return{
+        viewToken:'',
+        viewer:null 
+      }
+    },
+    
     methods:{
       buttonEvent:(str)=>{
         alert(str + '-Button Clicked')
@@ -11,6 +18,35 @@
 
 # View -- 模型图纸展示
 ----
+
+### 基础用法
+
+<div class="demo-block">
+  <input v-model="viewToken" style="border:1px solid #ccc;"/>
+  <face-view
+      :height="600"
+      :viewToken="viewToken"
+      vid="dom3d"
+      type="junior"
+      :viewer.sync="viewer"
+  ></face-view>
+</div>
+
+::: demo
+```html
+
+<div>
+  <face-view
+      :height="600"
+      :viewToken="viewToken"
+      vid="dom3d"
+      type="junior"
+      :viewer.sync="viewer"
+  ></face-view>
+</div>
+
+```
+:::
 
 
 ### Attributes

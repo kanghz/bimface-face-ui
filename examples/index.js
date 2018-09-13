@@ -11,8 +11,8 @@ Vue.use(Face);
 
 import intro from './doc/intro.md'
 import installation from './doc/installation.md'
-import quick from './pages/quick'
-import theme from './pages/theme'
+import quick from './doc/quick.md'
+import theme from './doc/theme.md'
 
 import alert from './doc/alert.md'
 import button from './doc/button.md'
