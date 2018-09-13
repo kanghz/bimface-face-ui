@@ -9,7 +9,6 @@ import Table from './components/table/index'
 import Tag from './components/tag/index'
 import View from './components/view/index'
 
-
 const components = [
     Alert,
     Button,

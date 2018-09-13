@@ -1,5 +1,5 @@
 <template>
-    <div class="face-loading" v-show="visible">
+    <div class="face-loading">
         <div class="face-loading-outer">
             <div class="face-loading-inner"></div>
         </div>
@@ -8,12 +8,6 @@
 
 <script>
     export default {
-        name: 'face-loading',
-
-        data() {
-          return {
-            visible: false
-          };
-        }
+      name: 'face-loading'
     }
 </script>

@@ -3,12 +3,9 @@
         <h2>Loading -- 加载</h2>
 
         <h4>基础使用</h4>
-        <div class="demo-box">
-            <p>将在这块区域展示loading</p>
-        </div>
         <div class="demo-row">
-            <face-button plain @click="openLoading">close loading</face-button>
-            <face-button plain @click="closeLoading">open loading</face-button>
+            <face-button plain @click="openLoading">open loading Dom</face-button>
+            <face-button plain @click="openLoading2">open loading fullScreen</face-button>
         </div>
     </div>
 </template>
@@ -17,11 +14,13 @@
     export default {
         methods:{
           openLoading(){
-
+            this.$loading.open({target:'.components-wrap'});
+            setTimeout(()=>{this.$loading.close()},3000)
           },
 
-          closeLoading(){
-
+          openLoading2(){
+            this.$loading.open();
+            setTimeout(()=>{this.$loading.close()},3000)
           }
         }
     }
