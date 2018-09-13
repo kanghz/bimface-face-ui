@@ -65,8 +65,6 @@
                         app.load(viewMetaData.viewToken);
                         viewer = app.getViewer();
                         that.$emit("update:viewer", viewer);
-                        viewer.addEventListener(Glodon.Bimface.Viewer.Viewer2DEvent.Loaded, function () {
-                        })
                     } else if (viewMetaData.viewType == "3DView") {
                         let webAppConfig = new Glodon.Bimface.Application.WebApplication3DConfig();
                         webAppConfig.domElement = dom4Show;
@@ -74,10 +72,6 @@
                         app.addView(viewMetaData.viewToken);
                         viewer = app.getViewer();
                         that.$emit("update:viewer", viewer);
-                        viewer.addEventListener(Glodon.Bimface.Viewer.Viewer3DEvent.ViewAdded, function () {
-                            // that.isAnnotation(that.annotation,viewer);
-                            // that.isMeasure(that.measure,viewer);
-                        });
                     } else if (viewMetaData.viewType == "drawingView"){
                         let WebAppConfig = new Glodon.Bimface.Application.WebApplicationDrawingConfig();
                         WebAppConfig.domElement = dom4Show;
@@ -88,16 +82,11 @@
                         viewer = app.getViewer();
                         that.$emit("update:viewer", viewer);
                         app.load(viewMetaData.viewToken);
-                        viewer.addEventListener(Glodon.Bimface.Viewer.ViewerDrawingEvent.Loaded, function () {
-                        });
                     } else if (viewMetaData.viewType == "rfaView") {
                         var config = new Glodon.Bimface.Application.WebApplicationRfaConfig();
                         config.domElement = dom4Show;
                         let app = new Glodon.Bimface.Application.WebApplicationRfa(config);
                         viewer = app.addView(viewMetaData.viewToken);
-                        app.addEventListener(Glodon.Bimface.Application.WebApplicationRfaEvent.ViewAdded, function() {
-                            app.render();
-                        });
                     }
                 } else if(this.type == 'senior'){
                     if (viewMetaData.viewType == "dwgView") {
@@ -106,18 +95,12 @@
                         viewer= new Glodon.Bimface.Viewer.Viewer2D(config);
                         viewer.addView(viewMetaData.viewToken);
                         that.$emit("update:viewer", viewer);
-                        viewer.addEventListener(Glodon.Bimface.Viewer.Viewer2DEvent.Loaded,function() {
-                        });
                     } else if (viewMetaData.viewType == "3DView" || viewMetaData.viewType == "rfaView") {
                         let config = new Glodon.Bimface.Viewer.Viewer3DConfig();
                         config.domElement = dom4Show;
                         viewer = new Glodon.Bimface.Viewer.Viewer3D(config);
                         viewer.addView(viewMetaData.viewToken);
                         that.$emit("update:viewer", viewer);
-                        viewer.addEventListener(Glodon.Bimface.Viewer.Viewer3DEvent.ViewAdded, function() {
-                            // that.isAnnotation(that.annotation,viewer);
-                            // that.isMeasure(that.measure,viewer);
-                        });
                     } else if (viewMetaData.viewType == "drawingView") {
                         let viewConfig = new Glodon.Bimface.Viewer.ViewerDrawingConfig();
                         viewConfig.domElement = dom4Show;
@@ -128,34 +111,9 @@
                         viewer = app.getViewer();
                         that.$emit("update:viewer", viewer);
                         app.load(viewMetaData.viewToken);
-                        app.addEventListener(Glodon.Bimface.Viewer.ViewerDrawingEvent.Loaded, function() {
-                        });
                     }
                 } else {
                     new Glodon.Bimface.Application.WebApplicationDemo(viewMetaData, dom4Show);
-                }
-            },
-
-            failureCallback(error){
-                console.log(error);
-            },
-
-            isAnnotation(b,obj){
-                if(b){
-                    let annotationconfig = new Glodon.Bimface.Plugins.Annotation.AnnotationManagerConfig();
-                    annotationconfig.viewer = obj;
-
-                    let manager = new Glodon.Bimface.Plugins.Annotation.AnnotationManager(annotationconfig);
-                    this.$emit("update:annotationManager", manager);
-                }
-            },
-
-            isMeasure(b,obj){
-                if(b){
-                    let measureConfig = new Glodon.Bimface.Plugins.Measure.MeasureConfig();
-                    measureConfig.viewer = obj;
-                    let measure = new Glodon.Bimface.Plugins.Measure.Measure(measureConfig);
-                    this.$emit("update:measureManager", measure);
                 }
             }
         }
