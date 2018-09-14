@@ -59,8 +59,8 @@
 ### Attributes
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |-------------  |-------- |
-| size     | 尺寸   | string  |   default,small,large            |    default     |
-| type     | 类型   | string    |   primary,orange |     —    |
+| size     | 尺寸   | String  |  small,large    |    default     |
+| type     | 类型   | String    |   primary,orange |     —    |
 | plain     | 是否朴素标签   | Boolean    | — | false   |
 
 

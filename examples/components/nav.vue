@@ -14,10 +14,10 @@
           <dd><router-link :to="{name: 'Loading'}">Loading 加载</router-link></dd>
           <dd><router-link :to="{name: 'Pagination'}">Pagination 翻页</router-link></dd>
           <dd><router-link :to="{name: 'Popup'}">Popup 弹出层</router-link></dd>
+          <dd><router-link :to="{name: 'Table'}">Table 表格</router-link></dd>
           <dd><router-link :to="{name: 'Tag'}">Tag 标签</router-link></dd>
 
-          <dt>表单表格组件</dt>
-          <dd><router-link :to="{name: 'Table'}">Table 表格</router-link></dd>
+          <dt>表单组件</dt>
 
           <dt>业务组件</dt>
           <dd><router-link :to="{name: 'View'}">View 模型</router-link></dd>

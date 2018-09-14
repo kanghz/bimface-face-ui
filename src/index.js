@@ -10,7 +10,6 @@ import Tag from './components/tag/index'
 import View from './components/view/index'
 
 const components = [
-    Alert,
     Button,
     Pagination,
     Popup,
@@ -25,6 +24,7 @@ const install = Vue => {
 
     components.forEach(component => Vue.component(component.name, component))
 
+    Vue.prototype.$alert = Alert;
     Vue.prototype.$loading = Loading;
 }
 

@@ -23,6 +23,7 @@
 # Loading -- 加载
 ----
 ### 基础用法
+通过调用 $loading 提供的两种方法来控制是否显示 open()、close()
 
 <div class="demo-block">
   <div>
