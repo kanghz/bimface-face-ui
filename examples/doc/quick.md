@@ -41,3 +41,11 @@ new Vue({
 ```
 
 ## 按需引入
+
+借助 ```babel-plugin-component```，我们可以只引入需要的组件，以达到减小项目体积的目的。
+
+首先，安装 babel-plugin-component：
+``` bash
+npm i babel-plugin-import -D
+```
+在 ```.babelrc``` 里添加插件配置：
