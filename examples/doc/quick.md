@@ -39,3 +39,5 @@ new Vue({
   render: h => h(App)
 });
 ```
+
+## 按需引入

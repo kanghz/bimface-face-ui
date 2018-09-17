@@ -258,11 +258,15 @@ section ul {
 section ul li {
   line-height: 1.8;
 }
+section .docs-demo-wrapper pre {
+  border-top: 0 none;
+  border-radius: 0px;
+}
 section pre {
   margin: 16px 0;
   padding: 18px 24px;
   background-color: #fafafa;
-  border: 1px solid #d1eade;
+  border: 1px solid #e2ecf4;
   border-radius: 4px;
   overflow: auto;
 }

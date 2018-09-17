@@ -1,6 +1,6 @@
 import './components/theme/variables.less'
 
-import Alert from './components/alert/index'
+// import Alert from './components/alert/index'
 import Button from './components/button/index'
 import Pagination from './components/pagination/index'
 import Popup from './components/popup/index'
@@ -24,7 +24,7 @@ const install = Vue => {
 
     components.forEach(component => Vue.component(component.name, component))
 
-    Vue.prototype.$alert = Alert;
+    // Vue.prototype.$alert = Alert;
     Vue.prototype.$loading = Loading;
 }
 
@@ -33,7 +33,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export {
-    Alert,
+    // Alert,
     Button,
     Pagination,
     Popup,

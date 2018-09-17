@@ -28,14 +28,10 @@ LoadingConstructor.prototype.open = function (options) {
 }
 
 LoadingConstructor.prototype.close = function () {
-  if(this.fullScreen){
-    document.body.removeChild(this.$el);
-  } else {
-    if(document.querySelector('.face-loading-parent-relative')){
-      this.target.classList.remove('face-loading-parent-relative');
-    }
-    this.target.removeChild(this.$el);
+  if(document.querySelector('.face-loading-parent-relative')){
+    this.$el.parentNode.classList.remove('face-loading-parent-relative');
   }
+  this.$el.parentNode.removeChild(this.$el);
 
 }
 
