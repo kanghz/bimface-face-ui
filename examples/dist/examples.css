@@ -1,73 +1,73 @@
-/*
-
-Colorbrewer theme
-Original: https://github.com/mbostock/colorbrewer-theme (c) Mike Bostock <mike@ocks.org>
-Ported by Fabrício Tavares de Oliveira
-
-*/
+/**
+ * GitHub Gist Theme
+ * Author : Louis Barranqueiro - https://github.com/LouisBarranqueiro
+ */
 
 .hljs {
   display: block;
-  overflow-x: auto;
+  background: white;
   padding: 0.5em;
-  background: #fff;
-}
-
-.hljs,
-.hljs-subst {
-  color: #000;
-}
-
-.hljs-string,
-.hljs-meta,
-.hljs-symbol,
-.hljs-template-tag,
-.hljs-template-variable,
-.hljs-addition {
-  color: #756bb1;
+  color: #333333;
+  overflow-x: auto;
 }
 
 .hljs-comment,
+.hljs-meta {
+  color: #969896;
+}
+
+.hljs-string,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-strong,
+.hljs-emphasis,
 .hljs-quote {
-  color: #636363;
+  color: #df5000;
 }
-
-.hljs-number,
-.hljs-regexp,
-.hljs-literal,
-.hljs-bullet,
-.hljs-link {
-  color: #31a354;
-}
-
-.hljs-deletion,
-.hljs-variable {
-  color: #88f;
-}
-
-
 
 .hljs-keyword,
 .hljs-selector-tag,
-.hljs-title,
+.hljs-type {
+  color: #a71d5d;
+}
+
+.hljs-literal,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-attribute {
+  color: #0086b3;
+}
+
 .hljs-section,
-.hljs-built_in,
-.hljs-doctag,
-.hljs-type,
-.hljs-tag,
-.hljs-name,
+.hljs-name {
+  color: #63a35c;
+}
+
+.hljs-tag {
+  color: #333333;
+}
+
+.hljs-title,
+.hljs-attr,
 .hljs-selector-id,
 .hljs-selector-class,
-.hljs-strong {
-  color: #3182bd;
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #795da3;
 }
 
-.hljs-emphasis {
-  font-style: italic;
+.hljs-addition {
+  color: #55a532;
+  background-color: #eaffea;
 }
 
-.hljs-attribute {
-  color: #e6550d;
+.hljs-deletion {
+  color: #bd2c00;
+  background-color: #ffecec;
+}
+
+.hljs-link {
+  text-decoration: underline;
 }
 @charset "utf-8";
 html,
@@ -243,8 +243,9 @@ section h2,
 section h3,
 section h4,
 section h5 {
-  margin: 16px 0;
+  margin: 24px 0 16px;
   line-height: 1.5;
+  font-weight: normal;
 }
 section h2 {
   font-size: 18px;
@@ -259,8 +260,10 @@ section ul li {
 }
 section pre {
   margin: 16px 0;
-  padding: 16px;
-  background-color: #F7F7F7;
+  padding: 18px 24px;
+  background-color: #fafafa;
+  border: 1px solid #d1eade;
+  border-radius: 4px;
   overflow: auto;
 }
 section pre code {
