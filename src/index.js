@@ -1,4 +1,4 @@
-import './components/theme/variables.less'
+import './components/theme/src/variables.less'
 
 // import Alert from './components/alert/index'
 import Button from './components/button/index'

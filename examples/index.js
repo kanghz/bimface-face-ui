@@ -4,8 +4,8 @@ import App from './app'
 
 Vue.use(VueRouter)
 
-import Face from '../dist/face'
-import '../dist/face.css'
+import Face from '../lib/face'
+import '../lib/face.css'
 // import './variables.less';
 Vue.use(Face);
 

@@ -72,17 +72,7 @@ module.exports = {
       test: /\.less$/,
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
-        use: [
-          'css-loader',
-          {
-            loader: "less-loader",
-            options:{
-              globalVars: {
-                'default-color': 'red'
-              }
-            }
-          }
-        ]
+        use: ['css-loader',"less-loader"]
       })
     },{
       test: /\.(png|jpe?g|gif)(\?.*)?$/,

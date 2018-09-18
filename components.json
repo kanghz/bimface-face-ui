@@ -1,0 +1,9 @@
+{
+  "button":"./src/components/button/index.js",
+  "pagination":"./src/components/pagination/index.js",
+  "popup":"./src/components/popup/index.js",
+  "loading":"./src/components/loading/index.js",
+  "table":"./src/components/table/index.js",
+  "tag":"./src/components/tag/index.js",
+  "view":"./src/components/view/index.js"
+}

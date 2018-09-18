@@ -19,4 +19,6 @@ examples
 .postcssrc.*
 .gitignore
 .npmignore
-webpack.examples.config.js
+webpack.examples.conf.js
+webpack.component.conf.js
+.json

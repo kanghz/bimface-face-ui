@@ -7,6 +7,8 @@ Face-ui 默认提供一套主题，方便使用者覆盖样式。我们提供了
 ## 在项目中改变 LESS 变量
 该项目的样式 使用 LESS 编写，如果你的项目也使用了 LESS，那么恭喜你，你可以直接在项目中改变 Face-ui 的样式变量。新建一个样式文件，例如 variables.less，写入以下内容：
 ``` bash
+@import "~bimface-face-ui/src/components/theme/src/index";
+
 @default-color: #606266;
 @primary-color: #f60;
 @waring-color: #f99d0b;
@@ -21,8 +23,6 @@ Face-ui 默认提供一套主题，方便使用者覆盖样式。我们提供了
 @table-th-bg:#f1f1f1;
 @table-stripe:#fafafa;
 @table-tr-hover:#f1fcfa;
-
-@import "~bimface-face-ui/src/components/theme/index";
 ```
 之后，在项目的入口文件中，直接引入以上样式文件即可（无需引入 Face-ui 编译好的 CSS 文件）：
 ``` bash

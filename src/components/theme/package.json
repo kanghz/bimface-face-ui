@@ -1,0 +1,27 @@
+{
+  "name": "Face-theme",
+  "version": "1.0.0",
+  "description": "Face component chalk theme.",
+  "main": "lib/index.css",
+  "style": "lib/index.css",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "build": "gulp build"
+  },
+  "keywords": [
+    "face",
+    "theme"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-less": "*",
+    "gulp-autoprefixer": "^4.0.0"
+  },
+  "dependencies": {}
+}

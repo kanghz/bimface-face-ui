@@ -8,9 +8,8 @@
       <slot></slot>
       <template v-show="data && data.length > 0">
         <slot name="item"
-              v-for="(item,index) in data"
-              :item="item"
-              :key="index">
+              v-for="(item) in data"
+              :item="item">
         </slot>
       </template>
     </tbody>

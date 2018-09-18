@@ -25,7 +25,7 @@ const webpackConfig = merge(baseWebpackConfig, {
   output: {
     path: config.build.assetsRoot,
     filename: utils.assetsPath('[name].js'),
-    library: 'face',
+    library: 'bimface-face-ui',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },

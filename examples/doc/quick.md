@@ -26,10 +26,10 @@ Face-ui 基于Vue.js 2.x+ 版本开发，如果需要可选择性了解以下基
 
 ## 全局组件使用
 可以在项目的入口文件中引入所有组件或所需组件
-``` bash
+``` javascript
 import Vue from 'vue'
 import Face from 'bimface-face-ui' // 引入组件库
-import 'bimface-face-ui/dist/face.css' // 引入样式库
+import 'bimface-face-ui/lib/face.css' // 引入样式库
 import App from './App.vue'
 
 Vue.use(Face)
@@ -49,3 +49,28 @@ new Vue({
 npm i babel-plugin-import -D
 ```
 在 ```.babelrc``` 里添加插件配置：
+```javascript
+"plugins": [
+ [
+   "component",
+   {
+     "libraryName": "bimface-face-ui",
+     "styleLibraryName": "theme"
+   }
+ ]
+]
+```
+安装和配置好插件后，即可使用，比如 Button 和 Select，那么需要在 main.js 中写入以下内容：
+```javascript
+import Vue from 'vue';
+import { Button, Popup } from 'bimface-face-ui';
+import App from './App.vue';
+
+Vue.use(Button);
+Vue.use(Popup);
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
+});
+```

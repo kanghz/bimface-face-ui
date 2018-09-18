@@ -46,7 +46,7 @@ module.exports = {
   build: {
     // Paths
     assetsRoot: path.resolve(__dirname, '../'),
-    assetsSubDirectory: 'dist',
+    assetsSubDirectory: 'lib',
     assetsPublicPath: '/',
 
     /**

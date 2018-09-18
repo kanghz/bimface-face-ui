@@ -1,13 +1,15 @@
 {
   "name": "bimface-face-ui",
-  "version": "0.0.21",
+  "version": "0.0.32",
   "description": "A Web UI Components built on Vue",
   "author": "Jerry <liangwq@glodon.com>",
-  "main": "dist/face.js",
-  "style": "dist/face.css",
+  "main": "lib/face.js",
+  "style": "lib/face.css",
   "scripts": {
     "dev": "webpack -w --config webpack.examples.conf.js",
-    "build": "node build/build.js"
+    "lib": "webpack --config webpack.component.conf.js && gulp build --gulpfile src/components/theme/gulpfile.js",
+    "build": "node build/build.js",
+    "prod": "npm run build && npm run lib"
   },
   "dependencies": {
     "vue": "^2.5.2",
@@ -19,6 +21,7 @@
     "babel-eslint": "^8.2.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-loader": "^7.1.1",
+    "babel-plugin-import": "^1.9.1",
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-runtime": "^6.22.0",
     "babel-plugin-transform-vue-jsx": "^3.5.0",
