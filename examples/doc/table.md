@@ -182,7 +182,7 @@
         </td>
         <td>{{props.item.createTime}}</td>
         <td>
-          <face-tag type="orange">success</face-tag>
+          <face-tag type="success">success</face-tag>
         </td>
       </tr>
     </template>
@@ -214,7 +214,7 @@
         </td>
         <td>{{props.item.createTime}}</td>
         <td>
-          <face-tag type="orange">success</face-tag>
+          <face-tag type="success">success</face-tag>
         </td>
       </tr>
     </template>
