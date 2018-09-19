@@ -17,6 +17,7 @@ import theme from './doc/theme.md'
 import alert from './doc/alert.md'
 import button from './doc/button.md'
 import icon from './doc/icon.md'
+import input from './test/index'
 import loading from './doc/loading.md'
 import pagination from './doc/pagination.md'
 import popup from './doc/popup.md'
@@ -33,6 +34,7 @@ const _routes = [
     { path: '/alert', name: 'Alert', component:alert},
     { path: '/button', name: 'Button', component:button},
     { path: '/icon', name: 'Icon', component:icon},
+    { path: '/input', name: 'Input', component:input},
     { path: '/loading', name: 'Loading', component:loading},
     { path: '/pagination', name: 'Pagination', component:pagination},
     { path: '/popup', name: 'Popup', component:popup},

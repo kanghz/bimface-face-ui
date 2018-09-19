@@ -2,6 +2,7 @@ import './components/theme/src/variables.less'
 
 // import Alert from './components/alert/index'
 import Button from './components/button/index'
+import Input from './components/input/index'
 import Pagination from './components/pagination/index'
 import Popup from './components/popup/index'
 import Loading from './components/loading/index'
@@ -11,6 +12,7 @@ import View from './components/view/index'
 
 const components = [
     Button,
+    Input,
     Pagination,
     Popup,
     Table,
@@ -35,6 +37,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 export {
     // Alert,
     Button,
+    Input,
     Pagination,
     Popup,
     Loading,

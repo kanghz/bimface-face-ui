@@ -1,0 +1,41 @@
+@import "../var";
+
+.face-input, .face-textarea {
+  position: relative;
+  font-size: 14px;
+  display: inline-block;
+  width:100%;
+  input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: @input-placeholder-color;
+  }
+  input, textarea {
+    -webkit-appearance: none;
+    background-color: @input-bg;
+    background-image: none;
+    border-radius: 4px;
+    border: 1px solid @input-border-color;
+    box-sizing: border-box;
+    color: @default-color;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    outline: none;
+    padding: 0 15px;
+    width: 100%;
+    &:focus {
+      border:1px solid @input-focus-border;
+    }
+  }
+  &.face-input-disabled {
+    input, textarea {
+      background-color: @input-disabled-bg;
+    }
+  }
+  &.face-input-readonly {
+    input, textarea {
+      &:focus {
+        border:1px solid @input-border-color;
+      }
+    }
+  }
+}

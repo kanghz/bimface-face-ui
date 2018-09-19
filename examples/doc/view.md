@@ -36,6 +36,7 @@
       :height="400"
       :view-token="viewToken"
       vid="test"
+      toolbar
       :viewer.sync="viewer"
   ></face-view>
 </div>
