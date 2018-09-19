@@ -7,12 +7,12 @@
   <div>
     <face-tag>标签一</face-tag>
     <face-tag type="primary">标签二</face-tag>
-    <face-tag type="orange">标签三</face-tag>
+    <face-tag type="prompt">标签三</face-tag>
   </div>
   <div class="mt10">
     <face-tag plain>标签一</face-tag>
     <face-tag type="primary" plain>标签二</face-tag>
-    <face-tag type="orange" plain>标签三</face-tag>
+    <face-tag type="prompt" plain>标签三</face-tag>
   </div>
 </div>
 
@@ -22,12 +22,12 @@
 <div>
   <face-tag>标签一</face-tag>
   <face-tag type="primary">标签二</face-tag>
-  <face-tag type="orange">标签三</face-tag>
+  <face-tag type="prompt">标签三</face-tag>
 </div>
 <div>
   <face-tag plain>标签一</face-tag>
   <face-tag type="primary" plain>标签二</face-tag>
-  <face-tag type="orange" plain>标签三</face-tag>
+  <face-tag type="prompt" plain>标签三</face-tag>
 </div>
 
 ```

@@ -19,42 +19,42 @@
     height: 28px;
     line-height: 28px;
     padding: 0 10px;
-    background-color: #f4f4f5;
+    background-color: @pagination-button-bg;
     border-radius: 4px;
     text-align: center;
-    color: #333;
+    color: @pagination-button-color;
     cursor: pointer;
     &.cur, &:hover {
       text-decoration: none;
-      background: @primary-color;
-      color: #fff;
+      background: @pagination-button-hover-bg;
+      color: @pagination-button-hover-color;
     }
   }
   .face-pagination-disable {
-    color: #ccc;
+    color: @pagination-button-disable-color;
     &:hover {
       cursor: default;
-      background: #f4f4f5;
-      color: #ccc;
+      background: @pagination-button-bg;
+      color: @pagination-button-disable-color;
     }
   }
   &.face-pagination-plain {
     .face-pagination-number {
       margin: 0;
       background-color: transparent;
-      color: #333;
+      color: @pagination-button-color;
       &.cur, &:hover {
         text-decoration: none;
         background: transparent;
-        color: @primary-color;
+        color: @pagination-button-hover-bg;
       }
     }
     .face-pagination-disable {
-      color: #ccc;
+      color: @pagination-button-disable-color;
       &:hover {
         cursor: default;
         background: transparent;
-        color: #ccc;
+        color: @pagination-button-disable-color;
       }
     }
   }

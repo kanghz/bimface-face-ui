@@ -18,12 +18,18 @@
   <div>
     <face-button>Default</face-button>
     <face-button type="primary">Primary</face-button>
+    <face-button type="success">Success</face-button>
     <face-button type="warning">Warning</face-button>
+    <face-button type="danger">Danger</face-button>
+    <face-button type="info">Info</face-button>
   </div>
   <div class="mt10">
     <face-button plain>Default</face-button>
     <face-button type="primary" plain>Primary</face-button>
+    <face-button type="success" plain>Success</face-button>
     <face-button type="warning" plain>Warning</face-button>
+    <face-button type="danger" plain>Danger</face-button>
+    <face-button type="info" plain>Info</face-button>
   </div>
 </div>
 
@@ -33,12 +39,18 @@
 <div>
   <face-button>Default</face-button>
   <face-button type="primary">Primary</face-button>
+  <face-button type="success">Success</face-button>
   <face-button type="warning">Warning</face-button>
+  <face-button type="danger">Danger</face-button>
+  <face-button type="info">Info</face-button>
 </div>
 <div>
   <face-button plain>Default</face-button>
   <face-button type="primary" plain>Primary</face-button>
+  <face-button type="success" plain>Success</face-button>
   <face-button type="warning" plain>Warning</face-button>
+  <face-button type="danger" plain>Danger</face-button>
+  <face-button type="info" plain>Info</face-button>
 </div>
 
 ```
@@ -51,12 +63,18 @@
   <div>
     <face-button disabled>Default</face-button>
     <face-button type="primary" disabled>Primary</face-button>
+    <face-button type="success" disabled>Success</face-button>
     <face-button type="warning" disabled>Warning</face-button>
+    <face-button type="danger" disabled>Danger</face-button>
+    <face-button type="info" disabled>Info</face-button>
   </div>
   <div class="mt10">
     <face-button plain disabled>Default</face-button>
     <face-button type="primary" plain disabled>Primary</face-button>
+    <face-button type="success" plain disabled>Success</face-button>
     <face-button type="warning" plain disabled>Warning</face-button>
+    <face-button type="danger" plain disabled>Danger</face-button>
+    <face-button type="info"plain  disabled>Info</face-button>
   </div>
 </div>
 
@@ -66,12 +84,18 @@
 <div>
   <face-button disabled>Default</face-button>
   <face-button type="primary" disabled>Primary</face-button>
+  <face-button type="success" disabled>Success</face-button>
   <face-button type="warning" disabled>Warning</face-button>
+  <face-button type="danger" disabled>Danger</face-button>
+  <face-button type="info" disabled>Info</face-button>
 </div>
 <div>
   <face-button plain disabled>Default</face-button>
   <face-button type="primary" plain disabled>Primary</face-button>
+  <face-button type="success" plain disabled>Success</face-button>
   <face-button type="warning" plain disabled>Warning</face-button>
+  <face-button type="danger" plain disabled>Danger</face-button>
+  <face-button type="info"plain  disabled>Info</face-button>
 </div>
 
 ```
@@ -151,11 +175,11 @@
 ### Attributes
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |-------------  |-------- |
-| size     | 尺寸   | string  |   default,medium,small,large            |    default     |
-| type     | 类型   | string    |   primary,warning |     —    |
+| size     | 尺寸   | String  |   default,medium,small,large            |    default     |
+| type     | 类型   | String    |   primary,success,warning,danger,info |     —    |
 | plain     | 是否朴素按钮   | Boolean    | — | false   |
-| disabled  | 是否禁用状态    | boolean   | —   | false   |
-| icon  | 图标，已有的图标库中的图标名 | string   |  —  |  —  |
+| disabled  | 是否禁用状态    | Boolean   | —   | false   |
+| icon  | 图标，已有的图标库中的图标名 | String   |  —  |  —  |
 
 
 ### Events
