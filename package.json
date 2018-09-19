@@ -1,6 +1,6 @@
 {
   "name": "bimface-face-ui",
-  "version": "0.0.32",
+  "version": "0.0.33",
   "description": "A Web UI Components built on Vue",
   "author": "Jerry <liangwq@glodon.com>",
   "main": "lib/face.js",
