@@ -19,7 +19,7 @@
         ]"></i>
       </template>
 
-      <i v-if="clearable" class="face-icon bim-close face-input-icon-close" @click="clear"></i>
+      <i v-if="clearable" class="face-icon bim-failed face-input-icon-close" @click="clear"></i>
     </div>
 </template>
 

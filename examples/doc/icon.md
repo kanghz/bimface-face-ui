@@ -1,4 +1,7 @@
 <style lang="less">
+  .face-icon {
+    font-size:18px;
+  }
   .icon-list {
     list-style: none;
     li {
