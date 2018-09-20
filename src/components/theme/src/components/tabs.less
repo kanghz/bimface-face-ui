@@ -1,0 +1,41 @@
+@import "../var";
+
+.face-tabs {
+  &-title {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  &-active-line {
+    color: @tabs-header-active-line;
+  }
+  &-wrapper {
+    position: relative;
+  }
+  &-header {
+    z-index: 1;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 16px;
+    overflow:hidden;
+    color: #878787;
+    background-color:#fff;
+  }
+  &-header-line {
+    z-index: 1;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    position: absolute;
+    background-color: @tabs-header-line;
+    transition-duration: 0.2s;
+  }
+  &-header-item {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+  }
+}

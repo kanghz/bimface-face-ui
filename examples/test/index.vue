@@ -1,21 +1,11 @@
 <template>
   <div>
     <div class="box">
-      <face-input v-model="input1"></face-input>
-    </div>
-
-    <div class="box">
-      <face-input v-model="input2" disabled></face-input>
-      &nbsp;
-      <face-input v-model="input2" readonly></face-input>
-    </div>
-
-    <div class="box">
-      <face-input v-model="input3" clearable></face-input>
-    </div>
-
-    <div class="box">
-      <face-input type="textarea" v-model="textarea1" :rows="3" placeholder="请输入文本"></face-input>
+      <face-tabs active="name1">
+        <face-tabpane label="第一年" name="name1">标签一的内容</face-tabpane>
+        <face-tabpane label="第二年" name="name2">标签二的内容</face-tabpane>
+        <face-tabpane label="第三年" name="name3"><p>标签三的内容</p></face-tabpane>
+      </face-tabs>
     </div>
   </div>
 </template>
@@ -24,10 +14,7 @@
   export default {
     data(){
       return {
-        input1:'',
-        input2:'',
-        input3:'',
-        textarea1:''
+
       }
     },
 
@@ -37,13 +24,5 @@
 </script>
 
 <style lang="less" scoped>
-  .box {
-    padding:10px;
-    .face-input {
-      width: 180px;
-    }
-    .face-textarea {
-      width: 400px;
-    }
-  }
+
 </style>

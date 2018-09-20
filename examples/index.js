@@ -22,6 +22,7 @@ import loading from './doc/loading.md'
 import pagination from './doc/pagination.md'
 import popup from './doc/popup.md'
 import table from './doc/table.md'
+import tabs from './test/index'
 import tag from './doc/tag.md'
 import view from './doc/view.md'
 
@@ -39,6 +40,7 @@ const _routes = [
     { path: '/pagination', name: 'Pagination', component:pagination},
     { path: '/popup', name: 'Popup', component:popup},
     { path: '/table', name: 'Table', component:table},
+    { path: '/tabs', name: 'Tabs', component:tabs},
     { path: '/tag', name: 'Tag', component:tag},
     { path: '/view', name: 'View', component:view}
 ];
