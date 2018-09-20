@@ -43,7 +43,7 @@ module.exports = {
     cssSourceMap: true
   },
 
-  build: {
+    build: {
     // Paths
     assetsRoot: path.resolve(__dirname, '../'),
     assetsSubDirectory: 'lib',

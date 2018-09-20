@@ -13,9 +13,15 @@
   };
 </script>
 
+<style>
+  .face-input {
+    width:240px;
+   }
+</style>
+
 # View -- 模型图纸展示
 ----
-<input v-model="viewToken" style="border:1px solid #ccc;"/>
+<face-input v-model="viewToken" clearable></face-input>
 
 ### 基础用法
 <div class="demo-block">

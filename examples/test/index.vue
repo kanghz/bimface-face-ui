@@ -15,7 +15,7 @@
     </div>
 
     <div class="box">
-      <face-input type="textarea" v-model="textarea1" placeholder="请输入文本"></face-input>
+      <face-input type="textarea" v-model="textarea1" :rows="3" placeholder="请输入文本"></face-input>
     </div>
   </div>
 </template>
