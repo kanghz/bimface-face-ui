@@ -1,9 +1,6 @@
 <template>
   <div class="face-tab-content" v-show="$parent.currentActive === name">
     <slot></slot>
-    <div v-if="$slots.title" ref="title" class="face-tab-title-wrapper">
-      <slot name="title" />
-    </div>
   </div>
 </template>
 
@@ -17,10 +14,7 @@
     },
 
     mounted () {
-      this.$parent.updateNav()
-      if (this.$slots.title) {
-        this.$parent.renderTitle(this.$refs.title, this.$parent.getPane().indexOf(this))
-      }
+      this.$parent.updateNav();
     }
   }
 </script>

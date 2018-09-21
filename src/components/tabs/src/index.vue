@@ -1,19 +1,19 @@
 <template>
   <div class="face-tabs-wrapper">
-    <div class="face-tabs-header" :style="headerWrapperStyles" ref="tabHeaderWrapper">
-      <div class="face-tabs-header-line" v-if="!hideLine && type === 'line'" :style="lineStyles"></div>
-      <div
-        class="face-tabs-header-item"
-        :class="{
-          'face-tabs-active-line': type === 'line' && currentActive === tab.name,
-          'face-tabs-active-block': type === 'block' && currentActive === tab.name
+    <div class="face-tabs-header" ref="tabHeaderWrapper">
+      <div class="face-tabs-header-nav">
+        <div
+          class="face-tabs-header-item"
+          :class="{
+          'face-tabs-header-item-active': type === 'line' && currentActive === tab.name
         }"
-        @click="handleClick($event, index)"
-        v-for="(tab, index) in tabList"
-        :key="index"
-        ref="tabItemTitleWrapperRef"
-      >
-        <span ref="title" class="face-tabs-title">{{ tab.label }}</span>
+          @click="handleClick($event, index)"
+          v-for="(tab, index) in tabList"
+          :key="index"
+        >
+          <span ref="tabItemTitleWrapper">{{ tab.label }}</span>
+        </div>
+        <div class="face-tabs-header-line" v-if="type === 'line'" :style="lineStyles"></div>
       </div>
     </div>
     <div class="face-tabs-content">
@@ -30,109 +30,73 @@
       active: {
         type: [String, Number]
       },
-      sticky: {
-        type: Boolean,
-        default: false
-      },
-      hideLine: {
-        type: Boolean,
-        default: false
-      },
       type: {
         type: String,
-        default: 'line',
-        validator (value) {
-          return ['line', 'block'].indexOf(value) > -1
-        }
-      },
-      autoActive: {
-        type: Boolean,
-        default: true
+        default: 'line'
       }
     },
 
     computed: {
-      headerWrapperStyles () {
-        return { 'position': this.sticky ? 'fixed' : 'absolute', 'height': `${this.titleHeight}px`}
-      },
       lineStyles () {
-        return { 'transform': this.tleft, 'width': this.lineWidth, 'display': this.lineDisplay }
+        return { 'transform': this.lineLeft, 'width': this.lineWidth }
       }
     },
 
     data () {
       return {
-        tleft: `translate(0, 0)`,
+        lineLeft: `translate(0, 0)`,
         tabList: [],
         currentActive: this.active,
         lineWidth: '0',
-        lineDisplay: 'none',
         index: 0
       }
     },
 
+    mounted(){
+      this.tabList.forEach((item, index) => {
+        if (this.currentActive === item.name) {
+          this.$nextTick(()=>{
+            this.setActivePane(index);
+          });
+        }
+      })
+    },
+
     methods: {
       handleClick (event, index) {
-        const navName = this.tabList[index].name
-        if (navName === this.currentActive) { return }
-        this.autoActive && this.setActivePane(index)
-        this.$emit('click', navName, index)
+        let paneName = this.tabList[index].name;
+        if (paneName === this.currentActive) { return };
+        this.setActivePane(index);
+        this.$emit('click', paneName, index);
       },
+
       setActivePane (index) {
-        this.index = index
-        this.currentActive = this.tabList[index].name
-        if (!this.hideLine && this.type === 'line') {
-          const parentLeft = this.$refs.tabHeaderWrapper.getBoundingClientRect().left
-          const targetLeft = this.$refs.tabItemTitleWrapperRef[index].getBoundingClientRect().left
-          this.tleft = `translate(${targetLeft - parentLeft}px, 0)`
+        this.index = index;
+        this.currentActive = this.tabList[index].name;
+        if (this.type === 'line') {
+          let parenlineLeft = this.$refs.tabHeaderWrapper.getBoundingClientRect().left;
+          let targelineLeft = this.$refs.tabItemTitleWrapper[index].getBoundingClientRect().left;
+          let targelineWidth = this.$refs.tabItemTitleWrapper[index].getBoundingClientRect().width;
+          this.lineLeft = `translate(${targelineLeft - parenlineLeft}px, 0)`;
+          this.lineWidth = `${targelineWidth}px`;
         }
       },
+
       getPane () {
-        return this.$children.filter(item => item.$options.name === 'face-tabpane')
+        return this.$children.filter(item => item.$options.name === 'face-tabpane');
       },
+
       updateNav () {
-        const children = this.getPane();
-        if (children.length === this.tabList.length) { return }
-        this.tabList = []
+        let children = this.getPane();
+        if (children.length === this.tabList.length) { return };
+        this.tabList = [];
         children.forEach((pane, index) => {
           this.tabList.push({
             label: pane.label,
             name: pane.name
           })
         })
-        !this.hideLine && this.type === 'line' && (this.lineWidth = (100 / this.tabList.length) + '%')
-      },
-      renderTitle (el, index) {
-        this.$nextTick(() => {
-          const title = this.$refs.title[index]
-          title.parentNode.replaceChild(el, title)
-        })
-      },
-      listenResize () {
-        const parentLeft = this.$refs.tabHeaderWrapper.getBoundingClientRect().left
-        const targetLeft = this.$refs.tabItemTitleWrapperRef[this.index].getBoundingClientRect().left
-        this.tleft = `translate(${targetLeft - parentLeft}px, 0)`
       }
-    },
-
-    mounted () {
-      const currentActive = this.currentActive
-      if (currentActive) {
-        const length = this.tabList.length
-        const width = this.$refs.tabHeaderWrapper.clientWidth
-        this.tabList.forEach((item, index) => {
-          if (currentActive === item.name) {
-            this.index = index
-            this.tleft = `translate(${index * (width / length)}px, 0))`
-            this.lineDisplay = 'block'
-          }
-        })
-      }
-      !this.hideLine && this.type === 'line' && window.addEventListener('resize', this.listenResize, false)
-    },
-
-    beforeDestroy () {
-      !this.hideLine && this.type === 'line' && window.removeEventListener('resize', this.listenResize)
     }
   }
 </script>

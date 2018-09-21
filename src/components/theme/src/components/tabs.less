@@ -2,29 +2,34 @@
 
 .face-tabs {
   &-title {
-    display: flex;
     width: 100%;
     height: 100%;
     align-items: center;
     justify-content: center;
   }
-  &-active-line {
-    color: @tabs-header-active-line;
-  }
-  &-wrapper {
-    position: relative;
-  }
   &-header {
-    z-index: 1;
+    position: relative;
     box-sizing: border-box;
-    text-align: center;
     font-size: 16px;
     overflow:hidden;
-    color: #878787;
-    background-color:#fff;
+    margin: 0 0 15px;
+    background-color: @tabs-header-bg;
+    &-nav {
+      position: relative;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #e4e7ed;
+      z-index: 1;
+    }
   }
   &-header-line {
-    z-index: 1;
+    z-index: 2;
     left: 0;
     bottom: 0;
     height: 2px;
@@ -33,9 +38,17 @@
     transition-duration: 0.2s;
   }
   &-header-item {
+    padding: 0 20px;
+    height: 40px;
+    box-sizing: border-box;
+    line-height: 40px;
     display: inline-block;
-    overflow: hidden;
-    text-overflow:ellipsis;
-    white-space: nowrap;
+    list-style: none;
+    cursor: pointer;
+    color: @tabs-header-item-color;
+    position: relative;
+    &-active {
+      color: @tabs-header-item-active;
+    }
   }
 }
