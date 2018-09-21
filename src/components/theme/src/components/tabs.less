@@ -10,12 +10,12 @@
   &-header {
     position: relative;
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: 14px;
     overflow:hidden;
-    margin: 0 0 15px;
     background-color: @tabs-header-bg;
     &-nav {
       position: relative;
+      display: inline-block;
     }
     &:after {
       content: "";
@@ -47,8 +47,73 @@
     cursor: pointer;
     color: @tabs-header-item-color;
     position: relative;
+    &:first-child {
+      padding: 0 20px 0 0;
+    }
     &-active {
       color: @tabs-header-item-active;
+    }
+    &:hover {
+      color: @tabs-header-item-active;
+    }
+  }
+  &-tab {
+    .face-tabs-header {
+      &:after {
+        height: 1px;
+      }
+    }
+    .face-tabs-header-nav {
+      border: 1px solid @tabs-header-item-border;
+      border-bottom: none;
+      border-radius: 4px 4px 0 0;
+      box-sizing: border-box;
+      .face-tabs-header-item {
+        border-bottom: 1px solid transparent;
+        border-left: 1px solid @tabs-header-item-border;
+        &.face-tabs-header-item-active {
+          border-bottom: 1px solid #fff;
+          padding: 0;
+          span {
+            display: block;
+            padding: 0 20px;
+            position: relative;
+            height: 40px;
+            background: #fff;
+            z-index: 2;
+          }
+          &:first-child {
+            padding: 0px;
+          }
+        }
+        &:first-child {
+          padding: 0 20px;
+          border-left: 1px solid transparent;
+        }
+      }
+    }
+  }
+  &-card {
+    border: 1px solid @tabs-header-item-border;
+    .face-tabs-header {
+      background-color: @tabs-header-bg-card;
+      &:after {
+        display: none;
+      }
+    }
+    .face-tabs-header-nav {
+      box-sizing: border-box;
+      .face-tabs-header-item {
+        border-bottom: 1px solid transparent;
+        &.face-tabs-header-item-active {
+          background-color: @tabs-header-item-active-bg;
+          border-bottom: 1px solid #fff;
+        }
+        &:first-child {
+          padding: 0 20px;
+          border-left: 1px solid transparent;
+        }
+      }
     }
   }
 }

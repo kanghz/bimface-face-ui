@@ -1,11 +1,13 @@
 <template>
-  <div class="face-tabs-wrapper">
+  <div class="face-tabs" :class="[
+    type !== 'line' ? 'face-tabs-' + type : ''
+    ]">
     <div class="face-tabs-header" ref="tabHeaderWrapper">
       <div class="face-tabs-header-nav">
         <div
           class="face-tabs-header-item"
           :class="{
-          'face-tabs-header-item-active': type === 'line' && currentActive === tab.name
+          'face-tabs-header-item-active': currentActive === tab.name
         }"
           @click="handleClick($event, index)"
           v-for="(tab, index) in tabList"

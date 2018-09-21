@@ -22,7 +22,7 @@ import loading from './doc/loading.md'
 import pagination from './doc/pagination.md'
 import popup from './doc/popup.md'
 import table from './doc/table.md'
-import tabs from './test/index'
+import tabs from './doc/tabs.md'
 import tag from './doc/tag.md'
 import view from './doc/view.md'
 
