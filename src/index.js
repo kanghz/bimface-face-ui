@@ -11,6 +11,7 @@ import Tabpane from './components/tabpane/index'
 import Tabs from './components/tabs/index'
 import Tag from './components/tag/index'
 import View from './components/view/index'
+import Marker3D from './components/marker3D/index'
 
 const components = [
   Button,
@@ -32,6 +33,7 @@ const install = Vue => {
 
   // Vue.prototype.$alert = Alert;
   Vue.prototype.$loading = Loading;
+  Vue.prototype.$marker3D = Marker3D;
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -49,7 +51,8 @@ export {
   Tabpane,
   Tabs,
   Tag,
-  View
+  View,
+  Marker3D
 }
 
 export default {

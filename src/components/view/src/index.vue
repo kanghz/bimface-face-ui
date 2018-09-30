@@ -99,6 +99,10 @@
                     let app = new Glodon.Bimface.Application.WebApplicationRfa(webAppConfig);
                     viewer = app.addView(viewMetaData.viewToken);
                 }
+            },
+
+            failureCallback(error){
+              console.log(error);
             }
         }
     }
