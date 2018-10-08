@@ -11,17 +11,9 @@
             width:Number,
             height:Number,
             viewToken:String,
-            annotation:{
-                type:Boolean,
-                default:false
-            },
             toolbar:{
               type:Boolean,
               default:false
-            },
-            measure:{
-                type:Boolean,
-                default:false
             },
             viewer:Object
         },
