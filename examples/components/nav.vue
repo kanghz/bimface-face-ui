@@ -18,6 +18,7 @@
           <dd><router-link :to="{name: 'Table'}">Table 表格</router-link></dd>
           <dd><router-link :to="{name: 'Tabs'}">Tabs 标签页</router-link></dd>
           <dd><router-link :to="{name: 'Tag'}">Tag 标签</router-link></dd>
+          <dd><router-link :to="{name: 'Tree'}">Tree 树形结构</router-link></dd>
 
           <dt>业务组件</dt>
           <dd><router-link :to="{name: 'View'}">View 模型</router-link></dd>

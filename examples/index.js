@@ -24,6 +24,7 @@ import popup from './doc/popup.md'
 import table from './doc/table.md'
 import tabs from './doc/tabs.md'
 import tag from './doc/tag.md'
+import tree from './test/index'
 import view from './doc/view.md'
 
 const _routes = [
@@ -42,6 +43,7 @@ const _routes = [
     { path: '/table', name: 'Table', component:table},
     { path: '/tabs', name: 'Tabs', component:tabs},
     { path: '/tag', name: 'Tag', component:tag},
+    { path: '/tree', name: 'Tree', component:tree},
     { path: '/view', name: 'View', component:view}
 ];
 

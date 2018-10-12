@@ -10,6 +10,7 @@ import Table from './components/table/index'
 import Tabpane from './components/tabpane/index'
 import Tabs from './components/tabs/index'
 import Tag from './components/tag/index'
+import Tree from './components/tree/index'
 import View from './components/view/index'
 import Marker3D from './components/marker3D/index'
 
@@ -22,6 +23,7 @@ const components = [
   Tabpane,
   Tabs,
   Tag,
+  Tree,
   View
 ]
 
@@ -51,6 +53,7 @@ export {
   Tabpane,
   Tabs,
   Tag,
+  Tree,
   View,
   Marker3D
 }

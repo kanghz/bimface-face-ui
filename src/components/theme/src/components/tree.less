@@ -1,0 +1,45 @@
+@import "../var";
+
+.face-tree {
+}
+.face-tree-node {
+  padding-left: 18px;
+  line-height: 26px;
+}
+.face-tree-node-switch {
+  cursor: pointer;
+  color:#ccc;
+  transform: rotate(-90deg);
+  transition: transform .3s ease-in-out;
+  font-size: 18px;
+}
+.face-tree-node-switch-on {
+  transform: rotate(0deg);
+}
+.face-tree-node-switch-close {
+  cursor: default;
+  visibility: hidden;
+}
+.face-tree-node-check {
+  display: inline-block;
+  position: relative;
+  border: 1px solid #dcdfe6;
+  border-radius: 2px;
+  box-sizing: border-box;
+  margin-right:5px;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+.face-tree-node-check .face-icon {
+  position: absolute;
+  font-size: 12px;
+  color:transparent;
+}
+.face-tree-node-check-on {
+  background-color: @primary-color;
+  border: 1px solid @primary-color;
+}
+.face-tree-node-check-on .face-icon {
+  color:#fff;
+}
