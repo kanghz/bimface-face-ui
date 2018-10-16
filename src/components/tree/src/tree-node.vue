@@ -1,26 +1,26 @@
 <template>
     <li :class="[this.title?'face-tree-root':'face-tree-node']">
       <div class="face-tree-node-content">
-        <template  v-if="list.items.length>0">
-          <i class="face-tree-node-switch face-icon bim-sort-down" :class="{'face-tree-node-switch-on':switchOn}" @click="nodeSwitch"></i>
-        </template>
-        <template  v-else>
-          <i class="face-tree-node-switch face-icon face-tree-node-switch-close"></i>
-        </template>
+        <i v-if="list.items.length>0" class="face-tree-node-switch face-icon bim-sort-down" :class="{'face-tree-node-switch-on':switchOn}" @click="nodeSwitch"></i>
+        <i v-else class="face-tree-node-switch face-icon face-tree-node-switch-close"></i>
 
-        <span class="face-tree-node-check" :class="{'face-tree-node-check-on':checked}" @click="nodeCheck"><i class="face-icon bim-checked"></i></span>
+        <span class="face-tree-node-check face-tree-node-check-on" v-if="checked && !half" @click="nodeCheck"><i class="face-icon bim-checked"></i></span>
+        <span class="face-tree-node-check" v-else-if="!checked && !half" @click="nodeCheck"><i class="face-icon bim-checked"></i></span>
+        <span class="face-tree-node-check face-tree-node-check-half" v-else @click="nodeCheck"><i class="face-icon">-</i></span>
+
         <span class="name">
           <template v-if="this.title">{{title}}</template>
           <template v-else>{{list.name}}</template>
         </span>
       </div>
-      <ul class="face-tree-subNode" v-if="list.items.length>0" v-show="switchOn">
-        <face-tree-node v-for="(u,i) in list.items" :key="i" :list.sync="u" :state="itemState"></face-tree-node>
-      </ul>
+
+      <transition name="fade">
+        <ul class="face-tree-subNode" v-if="list.items.length>0" v-show="switchOn">
+          <face-tree-node v-for="(u,i) in list.items" :key="i" :list.sync="u" :check-parent="checkTotal" :check-state="checked" @click="changeChild"></face-tree-node>
+        </ul>
+      </transition>
     </li>
 </template>
-
-<!--https://github.com/jiaxincui/vue-tree/blob/master/src/components/Item.vue-->
 
 <script>
     export default {
@@ -33,9 +33,11 @@
         title:{
           type:String
         },
-        state: {
-          type: Number,
-          default: 0
+        checkState: {
+          type: Boolean
+        },
+        checkParent:{
+          type:Number
         }
       },
 
@@ -43,25 +45,15 @@
         return {
           isRoot:false,
           switchOn:true,
-          checked:false,
-          itemState:0
+          checked:true,
+          checkTotal:this.list.items.length,
+          half:false
         }
       },
 
-      computed:{
-
-      },
-
       watch: {
-        state (val, old) {
-          if (val > old) {
-            // this.addChecked()
-            this.itemState = this.itemState + 1
-          } else {
-            // this.delChecked()
-            // this.deleteHalfChecked(this.model.id)
-            this.itemState = this.itemState - 1
-          }
+        checkState (val) {
+          this.checked = val
         }
       },
 
@@ -69,34 +61,35 @@
         nodeSwitch(){
           this.switchOn = !this.switchOn;
         },
+
         nodeCheck(){
           if(this.checked){
-            this.checked = false
+            this.checked = false;
+            this.$emit('click',false);
           } else {
-            this.checked = true
+            this.checked = true;
+            this.$emit('click',true);
           }
         },
 
-        addChecked () {
-          if (this.idsWithParent.indexOf(this.model.id) === -1) {
-            this.$set(this.idsWithParent, this.idsWithParent.length, this.model.id)
-          }
-          if (!this.isFolder || this.options.idsWithParent) {
-            if (this.ids.indexOf(this.model.id) === -1) {
-              this.$set(this.ids, this.ids.length, this.model.id)
-            }
-          }
+        changeChild(res){
+          (res)?this.checkTotal++:this.checkTotal--;
+          this.checkNodeState();
         },
-        delChecked () {
-          let idx = this.idsWithParent.indexOf(this.model.id)
-          let index = this.ids.indexOf(this.model.id)
-          if (idx !== -1) {
-            this.$delete(this.idsWithParent, idx)
+
+        checkNodeState(){
+          if(this.checkTotal == this.list.items.length){
+            this.half = false;
+            this.checked = true;
+            this.$emit('click',true);
+          } else if(this.checkTotal>0 && this.checkTotal<this.list.items.length){
+            this.half = true;
+          } else if(this.checkTotal == 0){
+            this.half = false;
+            this.checked = false;
+            this.$emit('click',false);
           }
-          if (index !== -1) {
-            this.$delete(this.ids, index)
-          }
-        },
+        }
       }
     }
 </script>
