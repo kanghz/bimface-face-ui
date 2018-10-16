@@ -16,7 +16,7 @@
 
       <transition name="fade">
         <ul class="face-tree-subNode" v-if="list.items.length>0" v-show="switchOn">
-          <face-tree-node v-for="(u,i) in list.items" :key="i" :list.sync="u" :check-parent="checkTotal" :check-state="checked" @click="changeChild"></face-tree-node>
+          <face-tree-node v-for="(u,i) in list.items" :key="i" :list.sync="u" :check-parent="checkTotal" :half-parent="halfTotal" :check-state="checked" @click="changeChild"></face-tree-node>
         </ul>
       </transition>
     </li>
@@ -38,6 +38,9 @@
         },
         checkParent:{
           type:Number
+        },
+        halfParent: {
+          type: Number
         }
       },
 
@@ -47,7 +50,8 @@
           switchOn:true,
           checked:true,
           checkTotal:this.list.items.length,
-          half:false
+          half:false,
+          halfTotal:0
         }
       },
 
@@ -63,31 +67,35 @@
         },
 
         nodeCheck(){
+          this.half = false;
           if(this.checked){
             this.checked = false;
-            this.$emit('click',false);
+            this.$emit('click',false,true);
           } else {
             this.checked = true;
-            this.$emit('click',true);
+            this.$emit('click',true,false);
           }
         },
 
-        changeChild(res){
-          (res)?this.checkTotal++:this.checkTotal--;
+        changeChild(c,h){
+          (c)?this.checkTotal++:this.checkTotal--;
+          (h)?this.halfTotal++:this.halfTotal--;
           this.checkNodeState();
         },
 
         checkNodeState(){
-          if(this.checkTotal == this.list.items.length){
+          console.log(`check:${this.checkTotal},half:${this.halfTotal}`);
+          if(this.checkTotal == this.list.items.length && this.halfTotal == 0){
             this.half = false;
             this.checked = true;
-            this.$emit('click',true);
-          } else if(this.checkTotal>0 && this.checkTotal<this.list.items.length){
-            this.half = true;
-          } else if(this.checkTotal == 0){
+            this.$emit('click',true,false);
+          } else if(this.checkTotal == 0 && this.halfTotal == 0){
             this.half = false;
             this.checked = false;
-            this.$emit('click',false);
+            this.$emit('click',false,false);
+          } else {
+            this.half = true;
+            this.$emit('click',false,true);
           }
         }
       }
