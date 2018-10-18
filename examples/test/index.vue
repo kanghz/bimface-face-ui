@@ -19,80 +19,6 @@
               "items": [
                 {
                   "data": null,
-                  "elementCount": 56,
-                  "id": "-2000011",
-                  "items": [
-                    {
-                      "data": null,
-                      "elementCount": 56,
-                      "id": null,
-                      "items": [
-                        {
-                          "data": null,
-                          "elementCount": 2,
-                          "id": null,
-                          "items": [ ],
-                          "name": "150mm",
-                          "type": "familyType"
-                        },
-                        {
-                          "data": null,
-                          "elementCount": 7,
-                          "id": null,
-                          "items": [ ],
-                          "name": "200mm厚页岩多孔砖",
-                          "type": "familyType"
-                        },
-                        {
-                          "data": null,
-                          "elementCount": 2,
-                          "id": null,
-                          "items": [ ],
-                          "name": "250mm",
-                          "type": "familyType"
-                        },
-                        {
-                          "data": null,
-                          "elementCount": 1,
-                          "id": null,
-                          "items": [ ],
-                          "name": "300mm",
-                          "type": "familyType"
-                        },
-                        {
-                          "data": null,
-                          "elementCount": 1,
-                          "id": null,
-                          "items": [ ],
-                          "name": "600mm",
-                          "type": "familyType"
-                        },
-                        {
-                          "data": null,
-                          "elementCount": 8,
-                          "id": null,
-                          "items": [ ],
-                          "name": "FGQ-03-250mm",
-                          "type": "familyType"
-                        },
-                        {
-                          "data": null,
-                          "elementCount": 2,
-                          "id": null,
-                          "items": [ ],
-                          "name": "LKQ-04-300mm",
-                          "type": "familyType"
-                        }
-                      ],
-                      "name": "基本墙",
-                      "type": "family"
-                    }
-                  ],
-                  "name": "墙",
-                  "type": "category"
-                },
-                {
-                  "data": null,
                   "elementCount": 9,
                   "id": "-2000126",
                   "items": [
@@ -100,16 +26,7 @@
                       "data": null,
                       "elementCount": 9,
                       "id": null,
-                      "items": [
-                        {
-                          "data": null,
-                          "elementCount": 9,
-                          "id": null,
-                          "items": [ ],
-                          "name": "900mm 圆管",
-                          "type": "familyType"
-                        }
-                      ],
+                      "items": [ ],
                       "name": "栏杆扶手",
                       "type": "family"
                     }

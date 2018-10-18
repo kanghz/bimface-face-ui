@@ -10,13 +10,14 @@
 
         <span class="name">
           <template v-if="this.title">{{title}}</template>
-          <template v-else>{{list.name}}</template>
+          <!--<template v-else>{{list.name}}</template>-->
+          <template v-else>check:{{checkTotal}},half:{{halfTotal}}</template>
         </span>
       </div>
 
       <transition name="fade">
         <ul class="face-tree-subNode" v-if="list.items.length>0" v-show="switchOn">
-          <face-tree-node v-for="(u,i) in list.items" :key="i" :list.sync="u" :check-parent="checkTotal" :half-parent="halfTotal" :check-state="checked" @click="changeChild"></face-tree-node>
+          <face-tree-node v-for="(u,i) in list.items" :key="i" :list.sync="u" :check-parent="checkTotal" :half-parent="halfTotal" :check-state="checked" :half-state="half" @click="changeChild"></face-tree-node>
         </ul>
       </transition>
     </li>
@@ -34,6 +35,9 @@
           type:String
         },
         checkState: {
+          type: Boolean
+        },
+        halfState: {
           type: Boolean
         },
         checkParent:{
@@ -55,9 +59,22 @@
         }
       },
 
+
       watch: {
         checkState (val) {
-          this.checked = val
+          if(val && !this.halfState){
+            this.checked = val;
+            this.checkTotal = this.list.items.length;
+          } else if(!val) {
+            this.checked = val;
+            this.checkTotal = 0;
+          }
+        },
+        halfState(val){
+          if(!val){
+            this.half = false;
+            this.halfTotal = 0;
+          }
         }
       },
 
@@ -67,35 +84,70 @@
         },
 
         nodeCheck(){
-          this.half = false;
+          console.log(this.list)
           if(this.checked){
+            if(this.half){
+              this.half = false;
+              this.$emit('click',-1,-1);
+            } else {
+              this.$emit('click',-1,0);
+            }
             this.checked = false;
-            this.$emit('click',false,true);
           } else {
             this.checked = true;
-            this.$emit('click',true,false);
+            this.$emit('click',1,0);
           }
         },
 
         changeChild(c,h){
-          (c)?this.checkTotal++:this.checkTotal--;
-          (h)?this.halfTotal++:this.halfTotal--;
+          this.checkTotal = this.checkTotal + c;
+          this.halfTotal = this.halfTotal + h;
           this.checkNodeState();
         },
 
         checkNodeState(){
-          console.log(`check:${this.checkTotal},half:${this.halfTotal}`);
           if(this.checkTotal == this.list.items.length && this.halfTotal == 0){
-            this.half = false;
-            this.checked = true;
-            this.$emit('click',true,false);
+            if(this.checked && this.half){
+              this.half = false;
+              this.$emit('click',0,-1);
+            } else if(!this.checked && this.half){
+              this.half = false;
+              this.checked = true;
+              this.$emit('click',1,-1);
+            } else if(this.checked && !this.half){
+              this.$emit('click',0,0);
+            } else {
+              this.checked = true;
+              this.$emit('click',1,0);
+            }
           } else if(this.checkTotal == 0 && this.halfTotal == 0){
-            this.half = false;
-            this.checked = false;
-            this.$emit('click',false,false);
+            if(this.checked && this.half){
+              this.half = false;
+              this.checked = false;
+              this.$emit('click',-1,-1);
+            } else if(!this.checked && this.half){
+              this.half = false;
+              this.$emit('click',0,-1);
+            } else if(this.checked && !this.half){
+              this.checked = false;
+              this.$emit('click',-1,0);
+            } else {
+              this.$emit('click',0,0);
+            }
           } else {
-            this.half = true;
-            this.$emit('click',false,true);
+            if(this.checked && this.half){
+              this.$emit('click',0,0);
+            } else if(!this.checked && this.half){
+              this.checked = true;
+              this.$emit('click',1,0);
+            } else if(this.checked && !this.half){
+              this.half = true;
+              this.$emit('click',0,1);
+            } else {
+              this.half = true;
+              this.checked = true;
+              this.$emit('click',1,1);
+            }
           }
         }
       }
