@@ -5,23 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="renderer" content="webkit">
   <title>test</title>
+  <style>
+    * {padding:0;margin:0}
+    #viewer {position:relative;width:100%; height:800px;}
+  </style>
   <link rel="stylesheet" href="../lib/face.css">
 </head>
 <body>
 
-<div id="app">
-  <face-button>Default</face-button>
-  <face-button type="primary">Primary</face-button>
-  <face-button type="success">Success</face-button>
-  <face-button type="warning">Warning</face-button>
-  <face-button type="danger">Danger</face-button>
+<div id="viewer">
+  <bf-tool-bar></bf-tool-bar>
+  <bf-base-panel visible="visible">
+    <div>test</div>
+  </bf-base-panel>
+  <bf-base-button type="danger">Danger</bf-base-button>
+  <bf-base-button type="info">Info</bf-base-button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://static.bimface.com/api/BimfaceSDKLoader/BimfaceSDKLoader@latest-release.js" charset="utf-8"></script>
 <script src="../lib/face.js"></script>
 <script>
+  var viewToken = 'b5f709deb6f54c9c8ebc3caec8a3ac83';
+
+  // 初始化显示组件
+  var options = new BimfaceSDKLoaderConfig();
+  options.viewToken = viewToken;
+  BimfaceSDKLoader.load(options, successCallback, failureCallback);
+
+  function successCallback(viewMetaData) {
+    var dom4Show = document.getElementById('viewer');
+    var config = new Glodon.Bimface.Viewer.Viewer3DConfig();
+    config.domElement = dom4Show;
+
+    var viewer3D = new Glodon.Bimface.Viewer.Viewer3D(config);
+    viewer3D.addView(viewToken);
+    viewer3D.addEventListener(Glodon.Bimface.Viewer.Viewer3DEvent.ViewAdded, function() {
+      viewer3D.render();
+
+    });
+  }
+
+  function failureCallback(error) {
+    console.log(error);
+  };
+
+
   new Vue({
-    el: '#app'
+    el: '#viewer',
+
+    data:{
+      visible: true
+    }
   })
 </script>
 </body>

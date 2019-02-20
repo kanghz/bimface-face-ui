@@ -18,7 +18,7 @@
 
 <script>
     export default {
-        name: 'face-button',
+        name: 'bf-base-button',
 
         props: {
             type:{
