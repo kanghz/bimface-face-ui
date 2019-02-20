@@ -7,19 +7,33 @@
   <title>test</title>
   <style>
     * {padding:0;margin:0}
-    #viewer {position:relative;width:100%; height:800px;}
+    #viewer {position:relative;width:100%; height:600px;}
   </style>
   <link rel="stylesheet" href="../lib/face.css">
 </head>
 <body>
 
 <div id="viewer">
-  <bf-tool-bar></bf-tool-bar>
+  <bf-tool-bar>
+    <div class="bf-button gld-bf-home" title="Home"></div>
+    <div class="bf-button gld-bf-zoomrect" title="框选放大"></div>
+    <div class="bf-button gld-bf-measure" title="测量"></div>
+    <div class="bf-button bf-toolbar-button gld-bf-sectionbox" title="剖切">
+      <div class="bf-sub-toolbar" title="剖切">
+        <div class="bf-button gld-bf-section-axial" title="轴向剖切"></div>
+        <div class="bf-button gld-bf-sectionbox1" title="剖切盒"></div>
+      </div>
+    </div>
+    <div class="bf-button gld-bf-firstperson" title="漫游模式"></div>
+    <div class="bf-button gld-bf-map" title="地图"></div>
+    <div class="bf-button gld-bf-properties" title="构件详情"></div>
+    <div class="bf-button gld-bf-settings" title="设置"></div>
+    <div class="bf-button gld-bf-information" title="基本信息"></div>
+    <div class="bf-button gld-bf-maximize " title="全屏"></div>
+  </bf-tool-bar>
   <bf-base-panel visible="visible">
     <div>test</div>
   </bf-base-panel>
-  <bf-base-button type="danger">Danger</bf-base-button>
-  <bf-base-button type="info">Info</bf-base-button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>

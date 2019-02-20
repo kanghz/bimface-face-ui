@@ -1,15 +1,12 @@
 <template>
     <div class="bf-tool-bar">
-      test
+      <slot></slot>
     </div>
 </template>
 
 <script>
-    export default {
-        name: 'bf-tool-bar',
-
-        props: {
-
-        }
-    }
+  import './toolbar.less'
+  export default {
+      name: 'bf-tool-bar'
+  }
 </script>
